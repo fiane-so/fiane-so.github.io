@@ -213,6 +213,25 @@ h2 em{font-style:italic;color:var(--gold);font-weight:300}
 .proj .client{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px}
 .proj.hide{display:none}
 
+.proj-grid{grid-auto-flow:dense}
+.proj-plat{font-family:var(--mono);font-size:11px;color:var(--ink-3);white-space:nowrap}
+.proj-badge.live{border-color:#5fbf7f;color:#5fbf7f;display:inline-flex;align-items:center;gap:6px}
+.proj-badge.live::before{content:"";width:6px;height:6px;border-radius:50%;background:#5fbf7f}
+.proj-stack{margin-top:22px;padding-top:16px;border-top:1px solid var(--line)}
+.proj.feat p{font-size:16px;max-width:560px}
+.archive{margin-top:56px;border-top:1px solid var(--line)}
+.archive-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;padding:26px 0 10px}
+.archive-head h3{font-family:var(--serif);font-weight:450;font-size:24px}
+.archive-head span{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.archive ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+.archive li{display:grid;grid-template-columns:170px 1fr auto;gap:14px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.archive li b{font-weight:500}
+.archive li span{color:var(--ink-2)}
+.archive li small{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.note{margin-top:26px;font-size:13.5px;color:var(--ink-3)}
+@media (max-width:980px){.archive ul{grid-template-columns:1fr}}
+@media (max-width:560px){.archive li{grid-template-columns:1fr auto;gap:4px 12px}.archive li span{grid-column:1/-1;grid-row:2}}
+
 /* education + languages */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .panel{padding:34px;border-radius:var(--radius);border:1px solid var(--line);background:var(--bg-2)}
@@ -352,7 +371,7 @@ footer a:hover{color:var(--gold)}
     <div class="portrait rv">
       <div class="portrait-ring"></div>
       <img src="assets/sofiane.png" alt="Portrait de Sofiane Woessou" width="488" height="484">
-      <div class="badge b1"><b>10+</b><span data-en="platforms shipped">plateformes livrées</span></div>
+      <div class="badge b1"><b>20+</b><span data-en="platforms built">plateformes conçues</span></div>
       <div class="badge b2"><b>18/20</b><span data-en="final thesis">soutenance</span></div>
     </div>
   </div>
@@ -361,15 +380,15 @@ footer a:hover{color:var(--gold)}
 
 <div class="marquee" aria-hidden="true">
   <div class="track">
-    <span>Java</span><span>Spring Boot</span><span>Flutter</span><span>PostgreSQL</span><span>Camunda</span><span>Thymeleaf</span><span>Angular</span><span>Laravel</span><span>Firebase</span><span>Docker</span>
-    <span>Java</span><span>Spring Boot</span><span>Flutter</span><span>PostgreSQL</span><span>Camunda</span><span>Thymeleaf</span><span>Angular</span><span>Laravel</span><span>Firebase</span><span>Docker</span>
+    <span>Java</span><span>Spring Boot</span><span>Flutter</span><span>PostgreSQL</span><span>Camunda</span><span>Thymeleaf</span><span>React</span><span>Redis</span><span>Firebase</span><span>Docker</span>
+    <span>Java</span><span>Spring Boot</span><span>Flutter</span><span>PostgreSQL</span><span>Camunda</span><span>Thymeleaf</span><span>React</span><span>Redis</span><span>Firebase</span><span>Docker</span>
   </div>
 </div>
 
 <div class="stats wrap rv" style="width:100%;max-width:none">
-  <div class="stat"><b><span class="count" data-to="10">0</span><sup>+</sup></b><span data-en="platforms delivered">plateformes livrées</span></div>
+  <div class="stat"><b><span class="count" data-to="20">0</span><sup>+</sup></b><span data-en="platforms built">plateformes conçues</span></div>
   <div class="stat"><b><span class="count" data-to="4">0</span></b><span data-en="companies worked with">entreprises</span></div>
-  <div class="stat"><b><span class="count" data-to="12">0</span><sup>+</sup></b><span data-en="technologies mastered">technologies maîtrisées</span></div>
+  <div class="stat"><b><span class="count" data-to="15">0</span><sup>+</sup></b><span data-en="technologies mastered">technologies maîtrisées</span></div>
   <div class="stat"><b><span class="count" data-to="4">0</span></b><span data-en="languages spoken">langues parlées</span></div>
 </div>
 
@@ -379,7 +398,7 @@ footer a:hover{color:var(--gold)}
     <div class="about-text">
       <div class="rv">
         <p class="big" data-en="I build complete business software — the kind that moves money, manages thousands of students or organises entire archives.">Je construis des logiciels métier complets — ceux qui déplacent de l'argent, gèrent des milliers d'étudiants ou organisent des archives entières.</p>
-        <p data-en="Since 2024, I've been evolving the <strong>MyNita</strong> app and its APIs at Nita Transfert d'Argent, where every transaction counts. Alongside that, I've designed and shipped around ten platforms for universities, transport companies, retailers and media in Niger.">Depuis 2024, je fais évoluer l'application <strong>MyNita</strong> et ses APIs chez Nita Transfert d'Argent, où chaque transaction compte. En parallèle, j'ai conçu et livré une dizaine de plateformes pour des universités, des sociétés de transport, des commerces et des médias au Niger.</p>
+        <p data-en="Since 2024, I've been evolving the <strong>MyNita</strong> app and its APIs at Nita Transfert d'Argent, where every transaction counts. Alongside that, I've built more than twenty platforms: schools, clinics, pharmacies, transport, retail, instalment sales and streaming.">Depuis 2024, je fais évoluer l'application <strong>MyNita</strong> et ses APIs chez Nita Transfert d'Argent, où chaque transaction compte. En parallèle, j'ai conçu plus de vingt plateformes : écoles, cliniques, pharmacies, transport, commerce, vente à crédit et streaming.</p>
         <p data-en="My playground: robust architectures (multiple databases, process orchestration with Camunda, partner API and Mobile Money integrations), and interfaces built for local realities — unstable networks, entry-level phones, busy users.">Mon terrain de jeu : les architectures robustes (multi-bases, orchestration de processus avec Camunda, intégration d'APIs partenaires et de Mobile Money), et des interfaces pensées pour les réalités locales — réseau instable, téléphones d'entrée de gamme, utilisateurs pressés.</p>
       </div>
       <div class="facts rv">
@@ -405,25 +424,25 @@ footer a:hover{color:var(--gold)}
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg></div>
         <h3>Back-end</h3>
         <p data-en="Secure REST APIs, financial transactions, partner integrations.">APIs REST sécurisées, transactions financières, intégrations partenaires.</p>
-        <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">Camunda</span><span class="chip">PHP</span><span class="chip">Laravel</span></div>
+        <div class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot 3</span><span class="chip">Spring Security · JWT</span><span class="chip">Camunda</span><span class="chip">Laravel</span></div>
       </div>
       <div class="stack-card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
         <h3>Mobile</h3>
         <p data-en="Smooth Android &amp; iOS apps, offline-ready, with push notifications.">Applications Android &amp; iOS fluides, hors ligne et notifications push.</p>
-        <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Riverpod</span><span class="chip">Firebase</span></div>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">Riverpod</span><span class="chip">go_router</span><span class="chip">Dio</span><span class="chip">Drift</span><span class="chip">Firebase</span></div>
       </div>
       <div class="stack-card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div>
         <h3>Front-end</h3>
         <p data-en="Clear, fast and responsive admin back-offices.">Back-offices d'administration clairs, rapides et responsive.</p>
-        <div class="chips"><span class="chip">Thymeleaf</span><span class="chip">Angular</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span></div>
+        <div class="chips"><span class="chip">Thymeleaf</span><span class="chip">Tailwind CSS</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Angular</span></div>
       </div>
       <div class="stack-card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
         <h3 data-en="Data &amp; infra">Données &amp; infra</h3>
         <p data-en="Data modelling, multi-database setups, Linux and VPS deployment.">Modélisation, multi-bases, déploiement Linux et VPS.</p>
-        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Oracle</span><span class="chip">SQLite</span><span class="chip">Docker</span></div>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">Redis</span><span class="chip">Flyway</span><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">MySQL</span><span class="chip">Oracle</span></div>
       </div>
     </div>
   </div>
@@ -520,76 +539,120 @@ footer a:hover{color:var(--gold)}
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-num rv" data-en="05 — PROJECTS">05 — PROJETS</div>
-      <h2 class="rv" data-en="Platforms <em>in production,</em> for real clients.">Des plateformes <em>en production,</em> pour de vrais clients.</h2>
+      <h2 class="rv" data-en="Complete platforms, <em>from back-end to mobile.</em>">Des plateformes complètes, <em>du back-end au mobile.</em></h2>
     </div>
     <div class="filters rv" role="group" aria-label="Filtrer les projets">
       <button class="filter on" data-f="all" data-en="All">Tous</button>
+      <button class="filter" data-f="fin" data-en="Fintech">Fintech</button>
+      <button class="filter" data-f="sante" data-en="Healthcare">Santé</button>
       <button class="filter" data-f="edu" data-en="Education">Éducation</button>
-      <button class="filter" data-f="biz" data-en="Business management">Gestion d'entreprise</button>
-      <button class="filter" data-f="com" data-en="Retail &amp; media">Commerce &amp; médias</button>
+      <button class="filter" data-f="log" data-en="Transport &amp; logistics">Transport &amp; logistique</button>
+      <button class="filter" data-f="com" data-en="Retail">Commerce</button>
+      <button class="filter" data-f="media" data-en="Media">Médias</button>
+      <button class="filter" data-f="biz" data-en="Productivity">Productivité</button>
     </div>
     <div class="proj-grid">
       <article class="proj feat rv" data-c="edu">
-        <div class="proj-top"><span class="proj-cat" data-en="Education · Final thesis">Éducation · Projet de soutenance</span><span class="proj-badge" data-en="18/20 · Honours">18/20 · Mention</span></div>
-        <h3>Digital University</h3>
-        <p data-en="Complete university academic management software: enrolment, curricula, grades, exams and administration in a single platform.">Logiciel complet de gestion académique universitaire : inscriptions, cursus, notes, examens et administration, réunis dans une seule plateforme.</p>
-        <div class="client"><span>Université Islamique au Niger</span><span>Spring Boot · Web</span></div>
+        <div class="proj-top"><span class="proj-cat" data-en="Education">Éducation</span><span class="proj-plat" data-en="Web + Mobile">Web + Mobile</span></div>
+        <h3>Scolaria</h3>
+        <p data-en="Complete school management for secondary schools: enrolment, grades and report cards, attendance, timetables, tuition fees, parent–teacher messaging. Mobile app with QR-code roll call, push notifications and biometrics.">Gestion scolaire complète pour collèges et lycées : inscriptions, notes et bulletins, absences, emplois du temps, frais de scolarité, messagerie parents-profs. Application mobile avec appel par QR code, notifications push et biométrie.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot 3</span><span class="chip">Java 21</span><span class="chip">Multi-modules</span><span class="chip">Flutter</span><span class="chip">Firebase</span></div>
       </article>
-      <article class="proj rv" data-c="edu">
-        <div class="proj-top"><span class="proj-cat" data-en="Education">Éducation</span></div>
-        <h3>UIN-Online</h3>
-        <p data-en="Online school enrolment — no travel, no paper files.">Inscription scolaire en ligne, sans déplacement ni dossier papier.</p>
-        <div class="client"><span>UIN</span><span>Web</span></div>
+      <article class="proj feat rv" data-c="fin">
+        <div class="proj-top"><span class="proj-cat" data-en="Fintech · Instalment sales">Fintech · Vente à crédit</span><span class="proj-badge live" data-en="Live">En production</span></div>
+        <h3>DanKassa</h3>
+        <p data-en="Instalment-payment sales platform: catalogue, contracts and schedules, cash collection by field agents, late-payment reminders, PDF receipts. One Flutter app for customers and staff, built for entry-level phones.">Plateforme de vente à paiement échelonné : catalogue, contrats et échéanciers, encaissement par les agents de caisse, relances de retard, reçus PDF. Une app Flutter pour les clients et le personnel, pensée pour les téléphones d&#x27;entrée de gamme.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot 3</span><span class="chip">Java 21</span><span class="chip">Flutter</span><span class="chip">Docker</span><span class="chip">CI/CD</span></div>
       </article>
-      <article class="proj rv" data-c="edu">
-        <div class="proj-top"><span class="proj-cat" data-en="Education">Éducation</span></div>
-        <h3>Digital Institut</h3>
-        <p data-en="Academic management tailored to higher-education institutes.">Gestion académique universitaire adaptée aux instituts.</p>
-        <div class="client"><span>Institut</span><span>Web</span></div>
+      <article class="proj feat rv" data-c="media">
+        <div class="proj-top"><span class="proj-cat" data-en="Streaming">Streaming</span><span class="proj-plat" data-en="Web + Mobile">Web + Mobile</span></div>
+        <h3>SahelFlix</h3>
+        <p data-en="Streaming platform for local cinema: subscription plans, time-limited offline downloads, filmmaker dashboard (views, likes, comments) and producer payouts.">Plateforme de streaming dédiée au cinéma local : abonnements par formule, téléchargement hors ligne à durée limitée, espace réalisateur (vues, likes, commentaires) et reversement aux producteurs.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot</span><span class="chip">Thymeleaf</span><span class="chip">Flutter</span><span class="chip">Riverpod</span></div>
       </article>
-      <article class="proj rv" data-c="edu">
-        <div class="proj-top"><span class="proj-cat" data-en="Education">Éducation</span></div>
-        <h3>Digital Inscription</h3>
-        <p data-en="Enrolment and tuition payments, tracked in real time.">Inscriptions et paiements des frais de scolarité, suivis en temps réel.</p>
-        <div class="client"><span>IPDR Kollo</span><span>Web</span></div>
+      <article class="proj feat rv" data-c="log">
+        <div class="proj-top"><span class="proj-cat" data-en="Transport &amp; logistics">Transport &amp; logistique</span><span class="proj-plat" data-en="Web + API">Web + API</span></div>
+        <h3>TransColis Pro</h3>
+        <p data-en="Transport company management: agencies, routes and trips, QR-code tickets, step-by-step parcel tracking, fleet, maintenance and cash desk. One API serving two Flutter apps (customers and agents).">Gestion d&#x27;une compagnie de transport : agences, lignes et voyages, billets à QR code, envoi et suivi de colis étape par étape, flotte, maintenance et caisse. Une API pour deux applications Flutter (clients et agents).</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot 3</span><span class="chip">Java 21</span><span class="chip">Flyway</span><span class="chip">PostgreSQL</span></div>
       </article>
-      <article class="proj rv" data-c="biz">
-        <div class="proj-top"><span class="proj-cat">Transport</span></div>
-        <h3>Transport-Voyageur</h3>
-        <p data-en="Trip, booking and parcel shipping management.">Gestion des voyages, des réservations et de l'expédition de colis.</p>
-        <div class="client"><span data-en="Transport company">Compagnie de transport</span><span>Web</span></div>
+      <article class="proj rv" data-c="fin">
+        <div class="proj-top"><span class="proj-cat" data-en="Personal finance">Finance personnelle</span><span class="proj-plat" data-en="Mobile">Mobile</span></div>
+        <h3>Vaulty</h3>
+        <p data-en="Fully local personal wealth cockpit: budgets, savings goals, family support, tontines and subscriptions. Encrypted database, biometric unlock and PDF export, with no server at all.">Cockpit de patrimoine personnel 100 % local : budgets, objectifs d&#x27;épargne, soutien familial, tontines et abonnements. Base chiffrée, déverrouillage biométrique et export PDF, sans aucun serveur.</p>
+        <div class="chips proj-stack"><span class="chip">Flutter</span><span class="chip">Drift</span><span class="chip">SQLCipher</span><span class="chip">Riverpod</span></div>
       </article>
-      <article class="proj rv" data-c="biz">
-        <div class="proj-top"><span class="proj-cat" data-en="Fleet">Flotte</span></div>
-        <h3>Cars Manager</h3>
-        <p data-en="Management of agents, drivers and the vehicle fleet.">Gestion des agents, des chauffeurs et du parc de véhicules.</p>
-        <div class="client"><span>EB Niger</span><span>Web</span></div>
+      <article class="proj rv" data-c="sante">
+        <div class="proj-top"><span class="proj-cat" data-en="Healthcare">Santé</span><span class="proj-plat" data-en="Web + API">Web + API</span></div>
+        <h3>ClinixOne</h3>
+        <p data-en="Clinic management: patient records, appointments and doctor schedules, consultations, prescriptions, lab, hospitalisation and billing.">Gestion de clinique : dossiers patients, rendez-vous et plannings des médecins, consultations, ordonnances, laboratoire, hospitalisation et facturation.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot</span><span class="chip">Spring Security</span><span class="chip">JWT</span><span class="chip">Thymeleaf</span></div>
       </article>
-      <article class="proj rv" data-c="biz">
-        <div class="proj-top"><span class="proj-cat" data-en="Real estate">Immobilier</span></div>
-        <h3>Locasys</h3>
-        <p data-en="Premises rental management: leases, rents and due dates.">Gestion de la location de locaux : contrats, loyers et échéances.</p>
-        <div class="client"><span data-en="Property management">Gestion locative</span><span>Web</span></div>
+      <article class="proj rv" data-c="sante">
+        <div class="proj-top"><span class="proj-cat" data-en="Healthcare · Pharmacy">Santé · Pharmacie</span><span class="proj-plat" data-en="Web">Web</span></div>
+        <h3>Pharma-Plus</h3>
+        <p data-en="Pharmacy management: batch-tracked medicines, prescriptions, drug-interaction alerts, point of sale, stock counts, supplier orders, Excel and PDF exports.">Gestion de pharmacie : médicaments par lots, ordonnances, alertes d&#x27;interactions médicamenteuses, caisse, inventaires, commandes fournisseurs, exports Excel et PDF.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot</span><span class="chip">Redis</span><span class="chip">Apache POI</span><span class="chip">OpenPDF</span></div>
       </article>
-      <article class="proj rv" data-c="biz">
-        <div class="proj-top"><span class="proj-cat" data-en="Commercial property">Immobilier commercial</span></div>
-        <h3>Stores Manager</h3>
-        <p data-en="Shop rental management and tenant tracking.">Gestion des locations de boutiques et du suivi des locataires.</p>
-        <div class="client"><span>SOCOGEM</span><span>Web</span></div>
-      </article>
-      <article class="proj rv" data-c="com">
-        <div class="proj-top"><span class="proj-cat" data-en="Retail">Commerce</span></div>
-        <h3>E-Market</h3>
-        <p data-en="Sales, checkout and stock management for supermarkets.">Ventes, caisse et gestion de stock pour supermarchés.</p>
-        <div class="client"><span data-en="Retail chain">Grande distribution</span><span>Web</span></div>
+      <article class="proj rv" data-c="sante">
+        <div class="proj-top"><span class="proj-cat" data-en="Healthcare · Blood donation">Santé · Don de sang</span><span class="proj-plat" data-en="Web + API">Web + API</span></div>
+        <h3>HemoLink</h3>
+        <p data-en="Blood donation management: donor eligibility, collection campaigns, per-hospital blood stock and volunteer notifications.">Gestion du don de sang : éligibilité des donneurs, campagnes de collecte, stocks par hôpital et notifications aux volontaires.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Firebase</span></div>
       </article>
       <article class="proj rv" data-c="com">
-        <div class="proj-top"><span class="proj-cat" data-en="Media">Médias</span></div>
-        <h3>ANFANI TV</h3>
-        <p data-en="Client management and advertising broadcast scheduling.">Gestion des clients et planification de la diffusion publicitaire.</p>
-        <div class="client"><span>ANFANI TV</span><span>Web</span></div>
+        <div class="proj-top"><span class="proj-cat" data-en="Retail">Commerce</span><span class="proj-plat" data-en="Web">Web</span></div>
+        <h3>Zentora Prime-Store</h3>
+        <p data-en="Multi-store supermarket management: point of sale and cash sessions, batch stock, suppliers, promotions, returns and stock counts.">Gestion de supermarché multi-boutiques : caisse et sessions de caisse, stock par lots, fournisseurs, promotions, retours et inventaires.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot</span><span class="chip">Redis</span><span class="chip">Thymeleaf</span><span class="chip">PostgreSQL</span></div>
+      </article>
+      <article class="proj rv" data-c="com">
+        <div class="proj-top"><span class="proj-cat" data-en="E-commerce">E-commerce</span><span class="proj-plat" data-en="Web + API">Web + API</span></div>
+        <h3>Shopy-Max</h3>
+        <p data-en="Online store: catalogue, orders, delivery zones, promotions and a referral programme with earnings withdrawals.">Boutique en ligne : catalogue, commandes, zones de livraison, promotions et programme de parrainage avec retraits des gains.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot</span><span class="chip">Java 21</span><span class="chip">JWT</span><span class="chip">Thymeleaf</span></div>
+      </article>
+      <article class="proj rv" data-c="log">
+        <div class="proj-top"><span class="proj-cat" data-en="Logistics">Logistique</span><span class="proj-plat" data-en="Web + API">Web + API</span></div>
+        <h3>EasyDrop</h3>
+        <p data-en="Parcel logistics: pricing rules, carriers, status history, receipts and cash desk, with real-time updates.">Gestion logistique de colis : tarification, sociétés de transport, historique des statuts, reçus et caisse, avec mises à jour en temps réel.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot</span><span class="chip">WebSocket</span><span class="chip">JWT</span><span class="chip">Thymeleaf</span></div>
+      </article>
+      <article class="proj rv" data-c="biz">
+        <div class="proj-top"><span class="proj-cat" data-en="Productivity">Productivité</span><span class="proj-plat" data-en="Web">Web</span></div>
+        <h3>Taskivo</h3>
+        <p data-en="Jira-style project and task management: teams, workflows, milestones, meetings, comments and attachments.">Gestion de projets et de tâches façon Jira : équipes, workflows, jalons, réunions, commentaires et pièces jointes.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot</span><span class="chip">Spring Security</span><span class="chip">Thymeleaf</span></div>
+      </article>
+      <article class="proj rv" data-c="sante">
+        <div class="proj-top"><span class="proj-cat" data-en="Healthcare · Lab">Santé · Laboratoire</span><span class="proj-plat" data-en="Web + API">Web + API</span></div>
+        <h3>Bio-Stock</h3>
+        <p data-en="Pharmaceutical sample stock with full traceability: entries, exits, transfers, adjustments and storage locations.">Stock d&#x27;échantillons pharmaceutiques avec traçabilité complète : entrées, sorties, transferts, ajustements et emplacements de stockage.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot</span><span class="chip">JWT</span><span class="chip">Thymeleaf</span></div>
+      </article>
+      <article class="proj rv" data-c="sante">
+        <div class="proj-top"><span class="proj-cat" data-en="Healthcare · Documents">Santé · Documents</span><span class="proj-plat" data-en="Web">Web</span></div>
+        <h3>Docu-Lab</h3>
+        <p data-en="Automatic generation of pharmaceutical regulatory documents from PDF templates, with archiving and tracking.">Génération automatique de documents réglementaires pharmaceutiques à partir de modèles PDF, puis archivage et suivi.</p>
+        <div class="chips proj-stack"><span class="chip">Spring Boot</span><span class="chip">PDF</span><span class="chip">Thymeleaf</span></div>
       </article>
     </div>
+    <div class="archive rv">
+      <div class="archive-head"><h3 data-en="Earlier projects">Projets antérieurs</h3><span data-en="2019 – 2023 · web platforms">2019 – 2023 · plateformes web</span></div>
+      <ul>
+        <li><b>Digital University</b><span data-en="University academic management · thesis 18/20">Gestion académique universitaire · soutenance 18/20</span><small>UIN</small></li>
+        <li><b>UIN-Online</b><span data-en="Online school enrolment">Inscription scolaire en ligne</span><small>UIN</small></li>
+        <li><b>Digital Institut</b><span data-en="Academic management for institutes">Gestion académique des instituts</span><small></small></li>
+        <li><b>Digital Inscription</b><span data-en="Enrolment and payments">Inscriptions et paiements</span><small>IPDR Kollo</small></li>
+        <li><b>Transport-Voyageur</b><span data-en="Trips and parcels">Voyages et colis</span><small></small></li>
+        <li><b>Cars Manager</b><span data-en="Agents, drivers and vehicles">Agents, chauffeurs et véhicules</span><small>EB Niger</small></li>
+        <li><b>Locasys</b><span data-en="Premises rental">Location de locaux</span><small></small></li>
+        <li><b>Stores Manager</b><span data-en="Shop rentals">Location de boutiques</span><small>SOCOGEM</small></li>
+        <li><b>E-Market</b><span data-en="Supermarket sales and stock">Ventes et stock pour supermarchés</span><small></small></li>
+        <li><b>ANFANI TV</b><span data-en="Clients and ad broadcasting">Clients et diffusion publicitaire</span><small>ANFANI TV</small></li>
+      </ul>
+    </div>
+    <p class="note rv" data-en="Most projects are private repositories (client code). Demo on request.">La plupart de ces projets sont dans des dépôts privés (code client). Démonstration sur demande.</p>
   </div>
 </section>
 
