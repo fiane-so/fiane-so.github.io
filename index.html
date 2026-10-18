@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sofiane Woessou — Ingénieur logiciel fullstack</title>
+<meta name="description" content="Sofiane Woessou, ingénieur logiciel fullstack à Niamey. Java / Spring Boot, Flutter, PostgreSQL. Plateformes métier web et mobiles, de l'API à l'interface.">
+<meta property="og:title" content="Sofiane Woessou — Ingénieur logiciel fullstack">
+<meta property="og:description" content="Java / Spring Boot · Flutter · PostgreSQL — Niamey, Niger">
+<meta property="og:image" content="https://fiane-so.github.io/assets/sofiane.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0f0e0c">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0e0c; --bg-2:#171512; --bg-3:#1f1c18;
+  --ink:#f3ede3; --ink-2:#b9b0a2; --ink-3:#7d7569;
+  --line:rgba(243,237,227,.10); --line-2:rgba(243,237,227,.18);
+  --gold:#d6a85c; --gold-2:#e9c58a; --gold-soft:rgba(214,168,92,.12);
+  --radius:18px;
+  --serif:"Fraunces", Georgia, serif;
+  --sans:"Inter", system-ui, -apple-system, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, monospace;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f6f1e8; --bg-2:#efe8dc; --bg-3:#e7ddcd;
+  --ink:#1a1714; --ink-2:#4f483f; --ink-3:#857b6e;
+  --line:rgba(26,23,20,.10); --line-2:rgba(26,23,20,.20);
+  --gold:#a2722a; --gold-2:#8a5f1f; --gold-soft:rgba(162,114,42,.10);
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:var(--gold);color:#0f0e0c}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+
+/* grain + glow */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.glow{position:absolute;width:640px;height:640px;border-radius:50%;filter:blur(120px);opacity:.16;background:var(--gold);pointer-events:none;z-index:0}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+header.scrolled{background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-.01em}
+.brand span{color:var(--gold)}
+.nav ul{display:flex;gap:30px;list-style:none;font-size:14px;color:var(--ink-2)}
+.nav ul a{position:relative;transition:color .2s}
+.nav ul a:hover{color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;background:transparent;color:var(--ink);cursor:pointer;transition:border-color .2s,transform .2s}
+.icon-btn:hover{border-color:var(--gold);transform:rotate(-12deg)}
+.icon-btn svg{width:18px;height:18px}
+.menu-btn{display:none}
+
+/* hero */
+.hero{position:relative;overflow:hidden;min-height:100svh;display:flex;align-items:center;padding:120px 0 80px}
+.hero .glow{top:-200px;right:-220px}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.dot{width:8px;height:8px;border-radius:50%;background:#5fbf7f;box-shadow:0 0 0 0 rgba(95,191,127,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(95,191,127,0)}100%{box-shadow:0 0 0 0 rgba(95,191,127,0)}}
+h1{font-family:var(--serif);font-weight:350;font-size:clamp(46px,7.4vw,96px);line-height:.98;letter-spacing:-.035em;margin:22px 0 26px}
+h1 em{font-style:italic;font-weight:300;color:var(--gold)}
+.lead{font-size:clamp(17px,1.6vw,19.5px);color:var(--ink-2);max-width:560px}
+.lead strong{color:var(--ink);font-weight:500}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;font-size:15px;font-weight:500;transition:transform .2s,background .2s,border-color .2s,color .2s}
+.btn svg{width:17px;height:17px}
+.btn-primary{background:var(--gold);color:#14110d}
+.btn-primary:hover{background:var(--gold-2);transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line-2)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.portrait{position:relative;justify-self:center;width:min(360px,100%)}
+.portrait-ring{position:absolute;inset:-18px;border-radius:50%;border:1px solid var(--line-2)}
+.portrait-ring::after{content:"";position:absolute;inset:-18px;border-radius:50%;border:1px dashed var(--line);animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.portrait img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:50%;filter:grayscale(1) contrast(1.05);background:var(--bg-3)}
+.badge{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:14px;background:color-mix(in srgb,var(--bg-2) 88%,transparent);border:1px solid var(--line-2);backdrop-filter:blur(10px);font-size:13px;white-space:nowrap;box-shadow:0 20px 40px -20px rgba(0,0,0,.5)}
+.badge b{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--gold)}
+.badge.b1{left:-34px;bottom:18%}
+.badge.b2{right:-26px;top:12%}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--ink-3);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint i{width:1px;height:36px;background:linear-gradient(var(--ink-3),transparent)}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);padding:22px 0;overflow:hidden;position:relative;z-index:1}
+.track{display:flex;gap:56px;width:max-content;animation:marquee 38s linear infinite;font-family:var(--serif);font-size:26px;font-weight:300;color:var(--ink-3)}
+.track span{display:flex;align-items:center;gap:56px}
+.track span::after{content:"✦";font-size:14px;color:var(--gold)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* sections */
+section{position:relative;z-index:1}
+.section{padding:120px 0}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:40px;margin-bottom:64px;align-items:end}
+.sec-num{font-family:var(--mono);font-size:12.5px;color:var(--gold);letter-spacing:.1em}
+h2{font-family:var(--serif);font-weight:350;font-size:clamp(34px,4.6vw,58px);line-height:1.05;letter-spacing:-.03em}
+h2 em{font-style:italic;color:var(--gold);font-weight:300}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:200px 1fr;gap:40px}
+.about-text{display:grid;grid-template-columns:1.2fr 1fr;gap:56px}
+.about-text p{color:var(--ink-2);font-size:17px}
+.about-text p+p{margin-top:18px}
+.about-text .big{font-family:var(--serif);font-size:clamp(22px,2.4vw,28px);line-height:1.35;color:var(--ink);font-weight:350;letter-spacing:-.01em}
+.facts{display:grid;gap:0;border-top:1px solid var(--line)}
+.fact{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.fact span:first-child{color:var(--ink-3)}
+.fact span:last-child{text-align:right}
+
+/* stack */
+.stack{background:var(--bg-2);border-block:1px solid var(--line)}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.stack-card{background:var(--bg-2);padding:32px 28px;transition:background .3s}
+.stack-card:hover{background:var(--bg-3)}
+.stack-card .ico{width:44px;height:44px;border-radius:12px;background:var(--gold-soft);color:var(--gold);display:grid;place-items:center;margin-bottom:22px}
+.stack-card .ico svg{width:22px;height:22px}
+.stack-card h3{font-family:var(--serif);font-weight:450;font-size:22px;margin-bottom:8px}
+.stack-card p{color:var(--ink-2);font-size:14.5px;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-2)}
+
+/* experience */
+.timeline{border-top:1px solid var(--line)}
+.job{display:grid;grid-template-columns:200px 1fr auto;gap:40px;padding:34px 0;border-bottom:1px solid var(--line);transition:padding .3s}
+.job:hover{padding-left:12px}
+.job .when{font-family:var(--mono);font-size:13px;color:var(--ink-3);padding-top:6px}
+.job h3{font-family:var(--serif);font-weight:450;font-size:clamp(22px,2.2vw,27px);letter-spacing:-.01em}
+.job .org{color:var(--gold);font-size:14.5px;margin:2px 0 12px}
+.job ul{list-style:none;color:var(--ink-2);font-size:15.5px}
+.job li{position:relative;padding-left:20px}
+.job li+li{margin-top:6px}
+.job li::before{content:"";position:absolute;left:0;top:.75em;width:8px;height:1px;background:var(--gold)}
+.job .tag{align-self:start;font-family:var(--mono);font-size:11.5px;padding:6px 12px;border-radius:999px;background:var(--gold-soft);color:var(--gold);white-space:nowrap}
+
+/* projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.filter{font-size:14px;padding:9px 18px;border-radius:999px;border:1px solid var(--line-2);background:transparent;color:var(--ink-2);cursor:pointer;font-family:inherit;transition:all .2s}
+.filter:hover{color:var(--ink);border-color:var(--ink-3)}
+.filter.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.proj{position:relative;display:flex;flex-direction:column;padding:28px;border-radius:var(--radius);border:1px solid var(--line);background:var(--bg-2);overflow:hidden;transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .3s}
+.proj:hover{transform:translateY(-5px);border-color:var(--line-2)}
+.proj::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),var(--gold-soft),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.proj:hover::before{opacity:1}
+.proj.feat{grid-column:span 2;background:linear-gradient(135deg,var(--bg-3),var(--bg-2))}
+.proj-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:34px}
+.proj-cat{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.proj-badge{font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:999px;border:1px solid var(--gold);color:var(--gold)}
+.proj-badge.wip{border-color:var(--line-2);color:var(--ink-2)}
+.proj h3{font-family:var(--serif);font-weight:450;font-size:25px;letter-spacing:-.015em;margin-bottom:8px}
+.proj.feat h3{font-size:clamp(28px,3vw,38px)}
+.proj p{color:var(--ink-2);font-size:15px;flex:1}
+.proj .client{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px}
+.proj.hide{display:none}
+
+/* education + languages */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel{padding:34px;border-radius:var(--radius);border:1px solid var(--line);background:var(--bg-2)}
+.panel h3{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.edu+.edu{margin-top:22px;padding-top:22px;border-top:1px solid var(--line)}
+.edu h4{font-family:var(--serif);font-weight:450;font-size:21px;line-height:1.25}
+.edu p{color:var(--ink-2);font-size:14.5px;margin-top:4px}
+.lang{display:grid;grid-template-columns:110px 1fr auto;gap:16px;align-items:center;padding:12px 0}
+.lang+.lang{border-top:1px solid var(--line)}
+.bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);border-radius:3px;width:0;transition:width 1.4s cubic-bezier(.2,.7,.2,1)}
+.lang small{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
+
+/* contact */
+.contact{padding:140px 0 60px;text-align:center;overflow:hidden}
+.contact .glow{left:50%;bottom:-420px;transform:translateX(-50%)}
+.contact h2{font-size:clamp(44px,8vw,104px);line-height:.98;max-width:900px;margin:22px auto 28px}
+.contact .lead{margin:0 auto}
+.contact .cta{justify-content:center}
+.mail{display:inline-block;margin-top:46px;font-family:var(--serif);font-size:clamp(22px,3.4vw,40px);font-weight:350;border-bottom:1px solid var(--line-2);padding-bottom:6px;transition:color .2s,border-color .2s;word-break:break-all}
+.mail:hover{color:var(--gold);border-color:var(--gold)}
+.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:40px}
+footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:28px 0;font-size:13px;color:var(--ink-3)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* responsive */
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr;gap:56px}
+  .portrait{order:-1;width:min(260px,70%)}
+  .badge.b1{left:-20px}.badge.b2{right:-14px}
+  .sec-head,.about-grid{grid-template-columns:1fr;gap:16px}
+  .about-text{grid-template-columns:1fr;gap:36px}
+  .stack-grid{grid-template-columns:repeat(2,1fr)}
+  .proj-grid{grid-template-columns:repeat(2,1fr)}
+  .job{grid-template-columns:1fr;gap:10px}
+  .job .tag{justify-self:start;grid-row:1}
+}
+@media (max-width:720px){
+  .nav ul{position:fixed;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px 20px;transform:translateY(-120%);transition:transform .35s;z-index:-1}
+  .nav ul.open{transform:none}
+  .nav ul a{display:block;padding:14px 0;font-size:17px;border-bottom:1px solid var(--line)}
+  .menu-btn{display:grid}
+  .section{padding:88px 0}
+  .stack-grid,.proj-grid,.duo{grid-template-columns:1fr}
+  .proj.feat{grid-column:auto}
+  .hero{padding-top:110px}
+  .scroll-hint{display:none}
+  .lang{grid-template-columns:90px 1fr auto}
+  .btn{height:48px;padding:0 20px}
+  .badge.b2{display:none}
+  .badge.b1{left:50%;bottom:-22px;transform:translateX(-50%)}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <nav class="wrap nav" aria-label="Navigation principale">
+    <a href="#" class="brand">Sofiane<span>.</span></a>
+    <ul id="menu">
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#stack">Expertise</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="icon-btn" id="theme" aria-label="Changer de thème">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="glow"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow rv"><span class="dot"></span>Disponible pour de nouveaux projets</div>
+      <h1 class="rv">Je conçois des plateformes <em>web &amp; mobiles</em> qui tiennent la charge.</h1>
+      <p class="lead rv">Ingénieur logiciel fullstack à Niamey. <strong>Java / Spring Boot</strong> côté serveur, <strong>Flutter</strong> côté mobile — de l'architecture de l'API jusqu'au dernier pixel de l'interface, pour la fintech, l'éducation et les entreprises d'Afrique de l'Ouest.</p>
+      <div class="cta rv">
+        <a href="#projets" class="btn btn-primary">Voir mes projets
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="assets/CV_Woessou_Sofiane.pdf" class="btn btn-ghost" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Télécharger mon CV</a>
+      </div>
+    </div>
+    <div class="portrait rv">
+      <div class="portrait-ring"></div>
+      <img src="assets/sofiane.png" alt="Portrait de Sofiane Woessou" width="488" height="484">
+      <div class="badge b1"><b>10+</b>plateformes livrées</div>
+      <div class="badge b2"><b>18/20</b>soutenance</div>
+    </div>
+  </div>
+  <div class="scroll-hint">DÉFILER<i></i></div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Java</span><span>Spring Boot</span><span>Flutter</span><span>PostgreSQL</span><span>Camunda</span><span>Thymeleaf</span><span>Angular</span><span>Laravel</span><span>Firebase</span><span>Docker</span>
+    <span>Java</span><span>Spring Boot</span><span>Flutter</span><span>PostgreSQL</span><span>Camunda</span><span>Thymeleaf</span><span>Angular</span><span>Laravel</span><span>Firebase</span><span>Docker</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="apropos">
+  <div class="wrap about-grid">
+    <div class="sec-num rv">01 — À PROPOS</div>
+    <div class="about-text">
+      <div class="rv">
+        <p class="big">Je construis des logiciels métier complets — ceux qui déplacent de l'argent, gèrent des milliers d'étudiants ou organisent des archives entières.</p>
+        <p style="margin-top:26px">Depuis 2024, je fais évoluer l'application <strong style="color:var(--ink);font-weight:500">MyNita</strong> et ses APIs chez Nita Transfert d'Argent, où chaque transaction compte. En parallèle, j'ai conçu et livré une dizaine de plateformes pour des universités, des sociétés de transport, des commerces et des médias au Niger.</p>
+        <p>Mon terrain de jeu : les architectures robustes (multi-bases, orchestration de processus avec Camunda, intégration d'APIs partenaires et de Mobile Money), et des interfaces pensées pour les réalités locales — réseau instable, téléphones d'entrée de gamme, utilisateurs pressés.</p>
+      </div>
+      <div class="facts rv">
+        <div class="fact"><span>Basé à</span><span>Niamey, Niger</span></div>
+        <div class="fact"><span>Poste actuel</span><span>Développeur logiciel · Nita</span></div>
+        <div class="fact"><span>Spécialité</span><span>Java / Spring Boot · Flutter</span></div>
+        <div class="fact"><span>Formation</span><span>Bachelor Informatique (BAC+4)</span></div>
+        <div class="fact"><span>Langues</span><span>Français · Haoussa · Zarma · Anglais</span></div>
+        <div class="fact"><span>Statut</span><span style="color:var(--gold)">Ouvert aux missions</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="section stack" id="stack">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num rv">02 — EXPERTISE</div>
+      <h2 class="rv">Une stack maîtrisée, <em>de bout en bout.</em></h2>
+    </div>
+    <div class="stack-grid rv">
+      <div class="stack-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="6" rx="2"/><rect x="3" y="14" width="18" height="6" rx="2"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+        <h3>Back-end</h3>
+        <p>APIs REST sécurisées, transactions financières, intégrations partenaires.</p>
+        <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">Camunda</span><span class="chip">PHP</span><span class="chip">Laravel</span></div>
+      </div>
+      <div class="stack-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+        <h3>Mobile</h3>
+        <p>Applications Android &amp; iOS fluides, hors ligne et notifications push.</p>
+        <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Riverpod</span><span class="chip">Firebase</span></div>
+      </div>
+      <div class="stack-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div>
+        <h3>Front-end</h3>
+        <p>Back-offices d'administration clairs, rapides et responsive.</p>
+        <div class="chips"><span class="chip">Thymeleaf</span><span class="chip">Angular</span><span class="chip">JavaScript</span><span class="chip">HTML/CSS</span></div>
+      </div>
+      <div class="stack-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+        <h3>Données &amp; infra</h3>
+        <p>Modélisation, multi-bases, déploiement Linux et VPS.</p>
+        <div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Oracle</span><span class="chip">SQLite</span><span class="chip">Docker</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="parcours">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num rv">03 — PARCOURS</div>
+      <h2 class="rv">Là où j'ai <em>fait mes preuves.</em></h2>
+    </div>
+    <div class="timeline">
+      <article class="job rv">
+        <div class="when">Depuis janv. 2024</div>
+        <div>
+          <h3>Développeur Logiciel</h3>
+          <div class="org">Nita Transfert d'Argent</div>
+          <ul>
+            <li>Gestion et évolution de l'application MyNita et de ses APIs.</li>
+            <li>Mise en place d'une plateforme de gestion des demandes internes.</li>
+            <li>Maintenance du système de transfert d'argent et amélioration continue.</li>
+          </ul>
+        </div>
+        <span class="tag">Poste actuel</span>
+      </article>
+      <article class="job rv">
+        <div class="when">3 mois</div>
+        <div>
+          <h3>Stagiaire Développeur · Java / Spring Boot</h3>
+          <div class="org">Nita Transfert d'Argent</div>
+          <ul>
+            <li>Apprentissage du framework Spring Boot et du moteur de processus open source Camunda.</li>
+            <li>Montée en compétences sur Java, HTML, CSS et JavaScript.</li>
+          </ul>
+        </div>
+        <span class="tag">Stage</span>
+      </article>
+      <article class="job rv">
+        <div class="when">9 mois</div>
+        <div>
+          <h3>Développeur Web · Plateforme d'archivage</h3>
+          <div class="org">Yulcom Technologie — mission SORAZ</div>
+          <ul>
+            <li>Développement d'une plateforme web d'archivage électronique.</li>
+            <li>Numérisation et structuration de documents physiques.</li>
+          </ul>
+        </div>
+        <span class="tag">Mission</span>
+      </article>
+      <article class="job rv">
+        <div class="when">4 mois</div>
+        <div>
+          <h3>Développeur Mobile · Flutter</h3>
+          <div class="org">YAYI MAKE</div>
+          <ul><li>Programmation d'applications mobiles avec Flutter et Dart.</li></ul>
+        </div>
+        <span class="tag">Mobile</span>
+      </article>
+      <article class="job rv">
+        <div class="when">6 mois</div>
+        <div>
+          <h3>Technicien · Maintenance Informatique</h3>
+          <div class="org">ANASERAM Informatique</div>
+          <ul><li>Maintenance du parc informatique et support technique.</li></ul>
+        </div>
+        <span class="tag">Support</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section stack" id="projets">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num rv">04 — PROJETS</div>
+      <h2 class="rv">Des plateformes <em>en production,</em> pour de vrais clients.</h2>
+    </div>
+    <div class="filters rv" role="group" aria-label="Filtrer les projets">
+      <button class="filter on" data-f="all">Tous</button>
+      <button class="filter" data-f="edu">Éducation</button>
+      <button class="filter" data-f="biz">Gestion d'entreprise</button>
+      <button class="filter" data-f="com">Commerce &amp; médias</button>
+    </div>
+    <div class="proj-grid">
+      <article class="proj feat rv" data-c="edu">
+        <div class="proj-top"><span class="proj-cat">Éducation · Projet de soutenance</span><span class="proj-badge">18/20 · Mention</span></div>
+        <h3>Digital University</h3>
+        <p>Logiciel complet de gestion académique universitaire : inscriptions, cursus, notes, examens et administration, réunis dans une seule plateforme.</p>
+        <div class="client"><span>Université Islamique au Niger</span><span>Spring Boot · Web</span></div>
+      </article>
+      <article class="proj rv" data-c="edu">
+        <div class="proj-top"><span class="proj-cat">Éducation</span></div>
+        <h3>UIN-Online</h3>
+        <p>Inscription scolaire en ligne, sans déplacement ni dossier papier.</p>
+        <div class="client"><span>UIN</span><span>Web</span></div>
+      </article>
+      <article class="proj rv" data-c="edu">
+        <div class="proj-top"><span class="proj-cat">Éducation</span></div>
+        <h3>Digital Institut</h3>
+        <p>Gestion académique universitaire adaptée aux instituts.</p>
+        <div class="client"><span>Institut</span><span>Web</span></div>
+      </article>
+      <article class="proj rv" data-c="edu">
+        <div class="proj-top"><span class="proj-cat">Éducation</span></div>
+        <h3>Digital Inscription</h3>
+        <p>Inscriptions et paiements des frais de scolarité, suivis en temps réel.</p>
+        <div class="client"><span>IPDR Kollo</span><span>Web</span></div>
+      </article>
+      <article class="proj rv" data-c="biz">
+        <div class="proj-top"><span class="proj-cat">Transport</span></div>
+        <h3>Transport-Voyageur</h3>
+        <p>Gestion des voyages, des réservations et de l'expédition de colis.</p>
+        <div class="client"><span>Compagnie de transport</span><span>Web</span></div>
+      </article>
+      <article class="proj rv" data-c="biz">
+        <div class="proj-top"><span class="proj-cat">Flotte</span></div>
+        <h3>Cars Manager</h3>
+        <p>Gestion des agents, des chauffeurs et du parc de véhicules.</p>
+        <div class="client"><span>EB Niger</span><span>Web</span></div>
+      </article>
+      <article class="proj rv" data-c="biz">
+        <div class="proj-top"><span class="proj-cat">Immobilier</span></div>
+        <h3>Locasys</h3>
+        <p>Gestion de la location de locaux : contrats, loyers et échéances.</p>
+        <div class="client"><span>Gestion locative</span><span>Web</span></div>
+      </article>
+      <article class="proj rv" data-c="biz">
+        <div class="proj-top"><span class="proj-cat">Immobilier commercial</span></div>
+        <h3>Stores Manager</h3>
+        <p>Gestion des locations de boutiques et du suivi des locataires.</p>
+        <div class="client"><span>SOCOGEM</span><span>Web</span></div>
+      </article>
+      <article class="proj rv" data-c="com">
+        <div class="proj-top"><span class="proj-cat">Commerce</span></div>
+        <h3>E-Market</h3>
+        <p>Ventes, caisse et gestion de stock pour supermarchés.</p>
+        <div class="client"><span>Grande distribution</span><span>Web</span></div>
+      </article>
+      <article class="proj rv" data-c="com">
+        <div class="proj-top"><span class="proj-cat">Médias</span></div>
+        <h3>ANFANI TV</h3>
+        <p>Gestion des clients et planification de la diffusion publicitaire.</p>
+        <div class="client"><span>ANFANI TV</span><span>Web</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION + LANGUAGES -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-num rv">05 — FORMATION</div>
+      <h2 class="rv">Les bases <em>solides.</em></h2>
+    </div>
+    <div class="duo">
+      <div class="panel rv">
+        <h3>Diplômes</h3>
+        <div class="edu">
+          <h4>Bachelor (BAC+4) · Science Informatique &amp; Technologie de l'Information</h4>
+          <p>Université Islamique au Niger (UIN) · 2019 – 2023</p>
+        </div>
+        <div class="edu">
+          <h4>Baccalauréat · Série D</h4>
+          <p>Collège Saint-Albert Le Grand, Atakpamé (Togo) · 2018 – 2019</p>
+        </div>
+      </div>
+      <div class="panel rv">
+        <h3>Langues</h3>
+        <div class="lang"><span>Français</span><div class="bar"><i data-w="100"></i></div><small>Natif</small></div>
+        <div class="lang"><span>Haoussa</span><div class="bar"><i data-w="100"></i></div><small>Natif</small></div>
+        <div class="lang"><span>Zarma</span><div class="bar"><i data-w="80"></i></div><small>Courant</small></div>
+        <div class="lang"><span>Anglais</span><div class="bar"><i data-w="55"></i></div><small>Intermédiaire</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="glow"></div>
+  <div class="wrap" style="position:relative">
+    <div class="eyebrow rv" style="justify-content:center"><span class="dot"></span>Parlons de votre projet</div>
+    <h2 class="rv">Une idée de plateforme ? <em>Construisons-la.</em></h2>
+    <p class="lead rv">Application mobile, back-office, intégration Mobile Money ou API sur mesure : je réponds sous 24 h.</p>
+    <a class="mail rv" href="mailto:wssofiane99@gmail.com">wssofiane99@gmail.com</a>
+    <div class="socials rv">
+      <a class="btn btn-primary" href="https://wa.me/22799904015" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.5-.2z"/></svg>WhatsApp</a>
+      <a class="btn btn-ghost" href="tel:+22799904015">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>+227 99 90 40 15</a>
+      <a class="btn btn-ghost" href="https://github.com/fiane-so" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>fiane-so</a>
+      <a class="btn btn-ghost" href="https://github.com/Asurah-stark" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5z"/></svg>Asurah-stark</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Sofiane Woessou · Niamey, Niger</span>
+    <a href="#top">Retour en haut ↑</a>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  // thème
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  if (saved) root.dataset.theme = saved;
+  document.getElementById('theme').addEventListener('click', () => {
+    const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+    root.dataset.theme = next;
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+
+  // header au scroll
+  const header = document.querySelector('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 20);
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  // menu mobile
+  const menu = document.getElementById('menu'), mb = document.getElementById('menuBtn');
+  mb.addEventListener('click', () => { const o = menu.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); mb.setAttribute('aria-expanded', false); }));
+
+  // apparition
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    e.target.querySelectorAll('.bar i').forEach(b => b.style.width = b.dataset.w + '%');
+    io.unobserve(e.target);
+  }), { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.rv').forEach((el, i) => { el.style.transitionDelay = (i % 4) * 70 + 'ms'; io.observe(el); });
+
+  // filtres projets
+  document.querySelectorAll('.filter').forEach(btn => btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const f = btn.dataset.f;
+    document.querySelectorAll('.proj').forEach(p => p.classList.toggle('hide', f !== 'all' && p.dataset.c !== f));
+  }));
+
+  // halo sur les cartes
+  document.querySelectorAll('.proj').forEach(c => c.addEventListener('pointermove', e => {
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }));
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
